@@ -186,6 +186,12 @@ target_link_libraries(tes3mp-server
     ${Breakpad_Library}
 )
 
+if(APPLE)
+        set(BUNDLE_RESOURCES_DIR "${APP_BUNDLE_DIR}/Contents/Resources")
+        add_subdirectory(../../files/ ${CMAKE_CURRENT_BINARY_DIR}/files)
+        configure_file("${OpenMW_BINARY_DIR}/tes3mp-server-default.cfg" ${BUNDLE_RESOURCES_DIR} COPYONLY)
+endif(APPLE)
+
 if (UNIX)
     target_link_libraries(tes3mp-server dl)
     # Fix for not visible pthreads functions for linker with glibc 2.15

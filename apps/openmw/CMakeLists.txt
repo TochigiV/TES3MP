@@ -253,7 +253,6 @@ if(APPLE)
     configure_file("${OpenMW_BINARY_DIR}/gamecontrollerdb.txt" ${BUNDLE_RESOURCES_DIR} COPYONLY)
 
     configure_file("${OpenMW_BINARY_DIR}/tes3mp-client-default.cfg" ${BUNDLE_RESOURCES_DIR} COPYONLY)
-    configure_file("${OpenMW_BINARY_DIR}/tes3mp-server-default.cfg" ${BUNDLE_RESOURCES_DIR} COPYONLY)
 
     add_custom_command(TARGET tes3mp
         POST_BUILD
