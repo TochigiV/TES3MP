@@ -53,7 +53,11 @@ IF(NOT CMAKE_BUILD_TYPE)
 ENDIF()
 
 if (APPLE)
-    set(APP_BUNDLE_NAME "${CMAKE_PROJECT_NAME}.app")
+# Start of tes3mp change (major)
+#
+# Set macOS bundle name to TES3MP
+    set(APP_BUNDLE_NAME "TES3MP.app")
+# End of tes3mp change (major)
 
     set(APP_BUNDLE_DIR "${OpenMW_BINARY_DIR}/${APP_BUNDLE_NAME}")
 endif (APPLE)
@@ -482,11 +486,15 @@ if(MYGUI_STATIC)
 endif (MYGUI_STATIC)
 
 if (APPLE)
-    configure_file(${OpenMW_SOURCE_DIR}/files/mac/openmw-Info.plist.in
+# Start of tes3mp change (major)
+#
+# use tes3mp plist file and icon file for macOS bundle
+    configure_file(${OpenMW_SOURCE_DIR}/files/mac/tes3mp-Info.plist.in
         "${APP_BUNDLE_DIR}/Contents/Info.plist")
 
-    configure_file(${OpenMW_SOURCE_DIR}/files/mac/openmw.icns
-        "${APP_BUNDLE_DIR}/Contents/Resources/OpenMW.icns" COPYONLY)
+    configure_file(${OpenMW_SOURCE_DIR}/files/mac/tes3mp.icns
+        "${APP_BUNDLE_DIR}/Contents/Resources/tes3mp.icns" COPYONLY)
+# End of tes3mp change (major)
 endif (APPLE)
 
 if (NOT APPLE)
